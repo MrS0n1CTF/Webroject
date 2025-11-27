@@ -12,7 +12,9 @@
     --ctf-neon-pink: #ff00cc; 
     --ctf-navbar-bg: #1a1a1a;
 }
-
+/*#signup-page {
+    display: none;
+}*/
 /* --- GLOBAL BODY STYLES (Applies to Login and Dashboard) --- */
 .login-body, .dashboard-body {
     margin: 0;
@@ -55,7 +57,7 @@
 
 
 /* --- LOGIN FORM STYLES (Kept from your initial code) --- */
-.login-form {
+#login-page{
     border: 2px solid var(--ctf-border-color);
     border-radius: 30px;
     padding: 50px;
@@ -71,7 +73,30 @@
     box-sizing: border-box;
     z-index: 2;
 }
-.login-form h1 {
+#signup-page{
+    display: none;
+    border: 2px solid var(--ctf-border-color);
+    border-radius: 30px;
+    padding: 50px;
+    box-shadow: 0 0 15px rgba(196, 196, 196, 0.5), 0 0 20px var(--ctf-primary-color), 0 0 40px var(--ctf-primary-color);
+    background-color: var(--ctf-card-bg);
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    width: 95%;
+    margin: 20px;
+    max-width: 400px;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.show-signup #signup-page{
+    display: flex;
+}
+.show-signup #login-page{
+    display: none;
+}
+.login-form h1, .signup-form h1{
     text-align: center;
     color: var(--ctf-primary-color);
     text-shadow: 0 0 8px rgba(196, 196, 196, 0.7), 0 0 15px rgba(196, 196, 196, 0.5);
@@ -82,7 +107,7 @@
     padding: 0 30px;
     box-sizing: border-box;
 }
-.login-form input {
+.login-form input, .signup-form input{
     width: 100%;
     padding: 10px;
     border: 1px solid var(--ctf-border-color);
@@ -92,11 +117,11 @@
     box-sizing: border-box;
     transition: box-shadow 0.3s ease;
 }
-.login-form input:focus {
+.login-form input:focus , .signup-form input:focus{
     outline: none;
     box-shadow: 0 0 5px var(--ctf-primary-color), 0 0 10px var(--ctf-primary-color);
 }
-.login-button {
+.login-button, .signup-button{
     width: 100%;
     padding: 12px;
     border: 1px solid var(--ctf-border-color);
@@ -110,7 +135,7 @@
     box-shadow: 0 0 5px var(--ctf-primary-color);
     transition: background-color 0.3s, box-shadow 0.3s;
 }
-.login-button:hover {
+.login-button:hover, .signup-button:hover{
     background-color: #c0c0c0; 
     box-shadow: 0 0 10px var(--ctf-primary-color), 0 0 20px var(--ctf-primary-color);
 }

@@ -1,7 +1,33 @@
 // auth.js - التصحيح النهائي لوظيفة التبديل بين واجهات الدخول والتسجيل
 
+// =========================================================
+// auth.js - يجب أن يبدأ هكذا
+// =========================================================
+
+// 1. IMPORT FIREBASE INSTANCES (من ملف الإعدادات الخاص بك)
+import { auth, db } from './firebase-config.js'; 
+
+// 2. IMPORT REQUIRED FIREBASE AUTH FUNCTIONS
+import { 
+    signInWithEmailAndPassword, 
+    createUserWithEmailAndPassword, 
+    signOut 
+} from "https://www.gstatic.com/firebase/9.6.1/firebase-auth.js"; 
+
+// 3. IMPORT REQUIRED FIRESTORE FUNCTIONS
+import { 
+    doc, 
+    setDoc 
+} from "https://www.gstatic.com/firebase/9.6.1/firebase-firestore.js"; 
+
+// ... الآن، سيتمكن المتصفح من التعرف على الدوال داخل الدالة التالية ...
+
+    // ... باقي الكود يعمل هنا ...
+
+// auth.js - التصحيح النهائي لوظيفة التبديل بين واجهات الدخول والتسجيل
+
 document.addEventListener('DOMContentLoaded', () => {
-    
+    const body = document.body;
     // جلب العناصر الأساسية (الصفحات)
     const loginPage = document.getElementById('login-page');
     const signupPage = document.getElementById('signup-page');
@@ -15,37 +41,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const signupMessageElement = document.getElementById('signup-message');
     // ** 1. وظيفة موحدة للتحويل بين الواجهات **
     // (تم جعلها دالة عامة (Window.toggleMode) لكي يمكن لـ main.js استخدامها)
-    window.toggleMode = function(isLogin) {
-        if (loginPage && signupPage) {
-            if (isLogin) {
-                // إظهار الدخول وإخفاء التسجيل (لاحظ استخدام 'flex' ليتوافق مع style.css)
-                loginPage.style.display = 'flex'; 
-                signupPage.style.display = 'none';
-            } else {
-                // إظهار التسجيل وإخفاء الدخول
-                loginPage.style.display = 'none';
-                signupPage.style.display = 'block'; // استخدام 'block' أو 'flex' حسب تنسيقك
-            }
-            // يمكن هنا مسح رسائل الأخطاء إن وجدت
-            // const authMessageElement = document.getElementById('auth-message');
-            // if (authMessageElement) authMessageElement.textContent = '';
-        }
-        if (authMessageElement) authMessageElement.textContent = '';
-    }
-    
-    // ** 2. تهيئة أولية: إخفاء صفحة التسجيل عند تحميل الصفحة **
-    if (signupPage && signupPage) {
-        // نستخدم toggleMode للتأكد من الحالة الابتدائية
-        window.toggleMode(true); 
-    }
 
     // ** 3. ربط أحداث النقر (بدون تكرار) **
-    
     // ربط رابط 'Signup'
     if (showSignupLink) {
         showSignupLink.addEventListener('click' , (e) => {
             e.preventDefault();
-            window.toggleMode(false); // تحويل إلى التسجيل
+            //window.toggleMode(false);
+            body.classList.add('show-signup');
         });
     }
     
@@ -53,7 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (showLoginLink) {
         showLoginLink.addEventListener('click', (e) => {
             e.preventDefault();
-            window.toggleMode(true); // تحويل إلى الدخول
+            //window.toggleMode(true);
+            body.classList.remove('show-signup');
         });
     }
     
@@ -70,18 +74,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = e.target.querySelector('#email').value.trim(); 
             const password = e.target.querySelector('#password').value.trim();
 
-            if (authMessageElement) authMessageElement.textContent = 'Logging in';
+            if (loginMessageElement) loginMessageElement.textContent = 'Logging in';
 
             try {
                 // التحقق من Firebase
                 const userCredential = await signInWithEmailAndPassword(auth, email, password);
                 
-                if (authMessageElement) authMessageElement.textContent = 'Access Granted';
+                if (loginMessageElement) loginMessageElement.textContent = 'Access Granted';
                 window.location.href = 'dashboard.html'; 
                 
             } catch (error) {
                 const errorMessage = error.message.replace('Firebase: Error (auth/', '').replace(').', '').replace(/-/g, ' ');
-                if (authMessageElement) authMessageElement.textContent = `Login Error ${errorMessage}`;
+                if (loginMessageElement) loginMessageElement.textContent = `Login Error ${errorMessage}`;
                 console.error("Login Error:", error);
             }
         });
@@ -102,11 +106,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const confirmPassword = e.target.querySelector('#confirm_password').value.trim();
 
             if (password !== confirmPassword) {
-                if (authMessageElement) authMessageElement.textContent = 'Password does not match';
+                if (signupMessageElement) signupMessageElement.textContent = 'Password does not match';
                 return;
             }
 
-            if (authMessageElement) authMessageElement.textContent = 'Account Creation in progress';
+            if (signupMessageElement) signupMessageElement.textContent = 'Account Creation in progress';
 
             try {
                 // 1. إنشاء المستخدم في Firebase Authentication
@@ -121,13 +125,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     completedChallenges: []
                 });
 
-                if (authMessageElement) authMessageElement.textContent = 'Account Created successfully';
+                if (signupMessageElement) signupMessageElement.textContent = 'Account Created successfully';
                 
                 window.location.href = 'dashboard.html';
                 
             } catch (error) {
                 const errorMessage = error.message.replace('Firebase: Error (auth/', '').replace(').', '').replace(/-/g, ' ');
-                if (authMessageElement) authMessageElement.textContent = `Error in signup${errorMessage}`;
+                if (signupMessageElement) signupMessageElement.textContent = `Error in signup${errorMessage}`;
                 console.error("Signup Error:", error);
             }
         });
