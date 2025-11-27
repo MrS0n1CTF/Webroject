@@ -3,21 +3,17 @@
 // 1. IMPORT FIREBASE INSTANCES (تأكد من وجود هذا الملف)
 import { auth, db } from './firebase-config.js'; 
 
-// 2. IMPORT REQUIRED FIREBASE SDK FUNCTIONS 
+// 2. IMPORT REQUIRED FIREBASE SDK FUNCTIONS (باستخدام روابط CDN الصحيحة من auth.js)
 import { 
     collection, 
     query, 
     orderBy, 
     onSnapshot,
     doc, 
-    getDoc,
-    updateDoc, 
-    arrayUnion
-} from "https://www.gstatic.com/firebase/10.10.0/firebase-firestore.js"; // ** التعديل هنا: إكمال رابط Firestore SDK **
+    getDoc
+} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
-import { 
-    onAuthStateChanged 
-} from "https://www.gstatic.com/firebase/10.10.0/firebase-auth.js"; // ** التعديل هنا: إكمال رابط Auth SDK **
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
 
 // 3. تعريف عناصر الواجهة

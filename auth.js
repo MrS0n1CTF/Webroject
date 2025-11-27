@@ -6,19 +6,13 @@
 
 // 1. IMPORT FIREBASE INSTANCES (من ملف الإعدادات الخاص بك)
 import { auth, db } from './firebase-config.js'; 
-
-// 2. IMPORT REQUIRED FIREBASE AUTH FUNCTIONS
 import { 
-    signInWithEmailAndPassword, 
-    createUserWithEmailAndPassword, 
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
     signOut 
-} from "https://www.gstatic.com/firebase/10.10.0/firebase-auth.js"; 
+} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+import { doc, setDoc } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
 
-// 3. IMPORT REQUIRED FIRESTORE FUNCTIONS
-import { 
-    doc, 
-    setDoc 
-} from "https://www.gstatic.com/firebase/10.10.0/firebase-firestore.js"; 
 
 // ... الآن، سيتمكن المتصفح من التعرف على الدوال داخل الدالة التالية ...
 
