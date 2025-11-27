@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTF - Account Settings</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <nav class="top-navbar">
+        <ul class="main-nav">
+            <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+            <li><a href="challenges.html" class="nav-link">Challenges</a></li>
+            <li><a href="scoreboard.html" class="nav-link">Scoreboard</a></li>
+            <li>
+                <a href="account_settings.html" class="nav-link active">Account</a> 
+            </li>
+            <li><a href="index.html" class="nav-link logout-link">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="main-container">
+        <div class="header">
+            <h1><i class="fas fa-user-cog"></i> Account & Profile</h1>
+        </div>
+        
+        <div class="account-grid">
+            
+            <section class="profile-card">
+                <h2>Hacker Status</h2>
+                <div class="profile-info">
+                    <p><strong>Alias:</strong> Mr. Robot</p>
+                    <p><strong>Email:</strong> mr.robot@fsociety.com</p>
+                    <p><strong>Total Score:</strong> <span class="stat-highlight">3500 Pts</span></p>
+                    <p><strong>Challenges Solved:</strong> <span class="stat-highlight">15 / 20</span></p>
+                    <p><strong>Current Rank:</strong> <span class="rank-highlight">#1</span></p>
+                </div>
+            </section>
+            
+            <section class="settings-form-wrapper">
+                <form class="login-form">
+                    <h2>Update Alias</h2>
+                    <div class="input-group">
+                        <label for="new_alias">New Hacker Alias</label> <br>
+                        <input type="text" id="new_alias" placeholder="Enter new hacker alias" required>
+                    </div>
+                    <button type="submit" class="login-button">Update Alias</button>
+                </form>
+            </section>
+
+            <section class="settings-form-wrapper">
+                <form class="login-form">
+                    <h2>Change Password</h2>
+                    <div class="input-group">
+                        <label for="current_password">Current Password</label> <br>
+                        <input type="password" id="current_password" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="new_password">New Password</label> <br>
+                        <input type="password" id="new_password" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="confirm_new_password">Confirm New Password</label> <br>
+                        <input type="password" id="confirm_new_password" required>
+                    </div>
+                    <button type="submit" class="login-button">Change Password</button>
+                </form>
+            </section>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -3,28 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CTF Dashboard - Categories</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> 
 </head>
 <body class="dashboard-body">
     <nav class="top-navbar">
         <ul class="main-nav">
             <li>
-                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="dashboard.html" class="nav-link active">Dashboard</a> 
+            </li>
+            <li>
+                <a href="challenges.html" class="nav-link">Challenges</a> 
+            </li>
+            <li>
+                <a href="scoreboard.html" class="nav-link">Scoreboard</a> 
             </li>
             <li>
                 <a href="account_settings.html" class="nav-link">Account</a>
             </li>
             <li>
-                <a href="index.html" class="nav-link">Logout</a>
+                <a href="index.html" class="nav-link logout-link">Logout</a> 
             </li>
         </ul>
     </nav>
     <div class="main-container">
-        <header>
-
-        </header>
         <main class="dashboard-content">
             <div class="header">
                 <h1>Challenge Categories</h1>
@@ -33,9 +36,9 @@
                 
                 <a href="challenges.html?category=network" class="challenge-card">
                     <div class="card-icon">
-                        <i class="fasfa-lock-open"></i>
-                        <img src="icons/Network.webp" alt="">
-                        </div>
+                        <i class="fas fa-network-wired"></i> 
+                        <img src="icons/Network.webp" alt="Network icon">
+                    </div>
                     <div class="card-body">
                         <h2>Network Challenge</h2>
                     </div>
@@ -46,8 +49,8 @@
                 
                 <a href="challenges.html?category=reverse" class="challenge-card">
                     <div class="card-icon">
-                        <i class="fasfa-code-branch"></i>
-                        <img src="icons/reverse.jpg" alt="">
+                        <i class="fas fa-code-branch"></i> 
+                        <img src="icons/reverse.jpg" alt="Reverse Engineering icon">
                     </div>
                     <div class="card-body">
                         <h2>Reverse engineering</h2>
@@ -59,8 +62,8 @@
 
                 <a href="challenges.html?category=privesc" class="challenge-card">
                     <div class="card-icon">
-                        <i class="fasfa-lock-open"></i>
-                        <img src="icons/priv.jpg" alt="">
+                        <i class="fas fa-user-shield"></i> 
+                        <img src="icons/priv.jpg" alt="Privilege Escalation icon">
                     </div>
                     <div class="card-body">
                         <h2>Privilge Esclcation</h2>
@@ -69,11 +72,21 @@
                         <span class="status-tag">0 challenges Available</span>
                     </div>
                 </a>
+                
+                <a href="challenges.html?category=web" class="challenge-card">
+                    <div class="card-icon">
+                        <i class="fas fa-globe"></i>
+                        <img src="icons/osint.jpg" alt="Web Exploitation icon">
+                    </div>
+                    <div class="card-body">
+                        <h2>Forensic</h2>
+                    </div>
+                    <div class="card-footer">
+                        <span class="status-tag">4 Challenges Available</span>
+                    </div>
+                </a>
             </section>
         </main>
-        <footer>
-
-        </footer>
     </div>
 </body>
 </html>

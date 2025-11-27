@@ -1,22 +1,37 @@
-.login-body{
+/* --- CTF THEME VARIABLES (Unified) --- */
+:root {
+    --ctf-primary-color: #a9a9a9; /* Silver/Gray for main text and borders */
+    --ctf-bg-color: #000000;
+    --ctf-card-bg: rgba(0, 0, 0, 0.7);
+    --ctf-input-bg: rgba(0, 0, 0, 0.8);
+    --ctf-border-color: #a9a9a9;
+    --ctf-accent-glow: 0 0 10px rgba(169, 169, 169, 0.7); /* Silver Glow */
+    
+    /* Neon Colors for accents/hovers */
+    --ctf-neon-green: #00ff66; 
+    --ctf-neon-pink: #ff00cc; 
+    --ctf-navbar-bg: #1a1a1a;
+}
+
+/* --- GLOBAL BODY STYLES (Applies to Login and Dashboard) --- */
+.login-body, .dashboard-body {
     margin: 0;
     width: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
-
-    background-image: url(img/back6.jpeg);
+    
+    /* Background settings from your login page */
+    background-image: url(img/back6.jpeg); 
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     position: relative;
-    color: #a9a9a9;
+    color: var(--ctf-primary-color);
     z-index: 1;
 }
-.login-body::before {
+/* Overlay for darkness */
+.login-body::before, .dashboard-body::before {
     content: "";
     position: absolute;
     top: 0;
@@ -26,14 +41,26 @@
     background-color: rgba(0, 0, 0, 0.7);
     z-index: -1;
 }
-/*///////////////////////////////////////////////*/
+
+/* Style to center the login page content */
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Style for dashboard pages to allow content flow */
+.dashboard-body {
+    display: block; 
+}
+
+
+/* --- LOGIN FORM STYLES (Kept from your initial code) --- */
 .login-form {
-    border: 2px solid #a9a9a9;
+    border: 2px solid var(--ctf-border-color);
     border-radius: 30px;
     padding: 50px;
-    box-shadow: 0 0 15px rgba(196,196,196,0.5) , 0 0 20px #a9a9a9 , 0 0 40px #a9a9a9;
-    background-color: rgba(0 , 0, 0 , 0.6);
-
+    box-shadow: 0 0 15px rgba(196, 196, 196, 0.5), 0 0 20px var(--ctf-primary-color), 0 0 40px var(--ctf-primary-color);
+    background-color: var(--ctf-card-bg);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,381 +73,308 @@
 }
 .login-form h1 {
     text-align: center;
-    margin-bottom: 10px;
-    color: rgb(169, 169, 169);
-    text-shadow: 0 0 8px rgba(196,196,196,0.7) , 0 0 15px rgba(196 , 196, 196 , 0.5);
-    margin: 5px 0;
+    color: var(--ctf-primary-color);
+    text-shadow: 0 0 8px rgba(196, 196, 196, 0.7), 0 0 15px rgba(196, 196, 196, 0.5);
+    margin: 5px 0 10px 0;
 }
 .input-group {
     width: 100%;
-    margin-left: 30px;
-    margin-right: 30px;
+    padding: 0 30px;
+    box-sizing: border-box;
 }
 .login-form input {
-    /*#00ff00 , 0.255.0*/ 
     width: 100%;
     padding: 10px;
-    border: 1px solid #a9a9a9;
+    border: 1px solid var(--ctf-border-color);
     border-radius: 13px;
-    background-color: rgba(0 , 0, 0 , 0.8);
-    color: #a9a9a9;
+    background-color: var(--ctf-input-bg);
+    color: var(--ctf-primary-color);
     box-sizing: border-box;
     transition: box-shadow 0.3s ease;
 }
 .login-form input:focus {
     outline: none;
-    box-shadow: 0 0 5px #a9a9a9, 0 0 10px #a9a9a9;
+    box-shadow: 0 0 5px var(--ctf-primary-color), 0 0 10px var(--ctf-primary-color);
 }
 .login-button {
     width: 100%;
     padding: 12px;
-    border: 1px solid #a9a9a9;
+    border: 1px solid var(--ctf-border-color);
     border-radius: 7px;
-    background-color: #a9a9a9;
+    background-color: var(--ctf-primary-color);
     color: #000;
     font-size: 1.1em;
     font-weight: bold;
     cursor: pointer;
     margin-top: 10px;
-    box-shadow: 0 0 5px #a9a9a9;
-    transition: background-color 0.3s , box-shadow 0.3s;
+    box-shadow: 0 0 5px var(--ctf-primary-color);
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 .login-button:hover {
-    background-color: #a977a9; /*#00cc00*/
-    box-shadow: 0 0 10px #a9a9a9, 0 0 20px #a9a9a9;
+    background-color: #c0c0c0; 
+    box-shadow: 0 0 10px var(--ctf-primary-color), 0 0 20px var(--ctf-primary-color);
 }
-.forgot-password , .signup {
-    text-align: center;
-    width: 100%;
-    margin-top: 5px;
-}
-.forgot-password a , .signup a {
-    color: #a9a9a9;
+.forgot-password a, .signup a {
+    color: var(--ctf-primary-color);
     text-decoration: none;
-    text-shadow: 0 0 5px rgba(0,255,0, 0.7);
+    text-shadow: 0 0 5px rgba(169, 169, 169, 0.7); 
     transition: text-shadow 0.3s;
 }
-.forgot-password a:hover , .signup a:hover {
+.forgot-password a:hover, .signup a:hover {
     text-decoration: underline;
-    text-shadow: 0 0 10px #a977a9 , 0 0 12px #a977a9;
+    text-shadow: 0 0 10px #c0c0c0, 0 0 12px #c0c0c0;
 }
 
-/* Dashboard */
-/* ========================================= */
-/* 1. المتغيرات والأنماط العامة */
-/* ========================================= */
-:root {
-    --dark-bg: #111;
-    --sidebar-bg: #1a1a1a; /* يستخدم للشريط العلوي الجديد */
-    --text-light: #f0f0f0;
-    --neon-green: #00ff66;
-    --neon-pink: #ff00cc;
-}
 
-/* ========================================= */
-/* 2. أنماط هيكل الداشبورد (Dashboard Layout) */
-/* ========================================= */
-.dashboard-body {
-    /* 🔴 تم إزالة display: flex; لأنه كان يستخدم لترتيب الشريط الجانبي */
-    padding: 0;
-    margin: 0;
-    min-height: 100vh;
-    
-    background-image: url(/img/back7.jpg);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    background-size: cover;
-    position: relative;
-    color: #a9a9a9;
-    z-index: 1;
-    /*color: var(--text-light);*/
-}
-.dashboard-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /*background-color: rgba(0,0,0,0.7);*/
-    z-index: -1;
-}
+/* ------------------------------------------------ */
+/* --- DASHBOARD & CHALLENGES STYLES (New) --- */
+/* ------------------------------------------------ */
 
-/* 🔴 تم حذف هذا القسم: .dashboard-body .sidebar { ... } */
-
-.dashboard-body .main-container {
-    /* لم يعد ضرورياً ولكن نتركه لترتيب المحتوى */
-    flex-grow: 1; 
-    overflow-x: hidden;
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
-
-.header {
+.header h1 {
     text-align: center;
-    padding-top: 20px; /* مسافة كافية أسفل شريط التنقل العلوي */
-    margin-bottom: 20px;
+    padding-top: 20px;
+    color: var(--ctf-primary-color);
+    text-shadow: var(--ctf-accent-glow);
+    margin-bottom: 30px;
 }
-
-/* ========================================= */
-/* 3. أنماط الشريط العلوي (Top Navbar) الجديد */
-/* ========================================= */
-
-/* 💥 يجب إنشاء <nav class="top-navbar"> في ملف HTML ليحل محل sidebar */
+/* Navigation Bar */
 .top-navbar {
-    background-color: var(--sidebar-bg);
+    background-color: var(--ctf-navbar-bg);
     padding: 0 20px;
-    display: block;
-    justify-content: flex-start; /* تبدأ الروابط من اليسار */
+    display: flex; 
+    justify-content: flex-start;
 }
-/* تطبيق التنسيق الأفقي على قائمة الروابط */
 .main-nav{
     list-style: none;
     padding: 0;
     margin: 0; 
-    display: flex; /* 💥 القاعدة الأساسية لترتيب الروابط أفقياً */
-    width: auto;
+    display: flex;
 }
-
-/* تعديل الـ links لتناسب الشريط العلوي */
 .nav-link {
     display: block;
-    /*padding: 15px 20px; */
-    padding: 15px 60px;
-    margin: 0 ; /* مسافة أفقية صغيرة بين الروابط */
-    color: var(--text-light);
+    padding: 15px 30px;
+    color: var(--ctf-primary-color);
     text-decoration: none;
-    border-radius: 4px;
     transition: all 0.2s ease;
 }
-
-/* تنسيقات Hover/Active تبقى كما هي */
 .main-nav .nav-link:hover {
     background-color: rgba(0, 255, 102, 0.1);
-    color: var(--neon-green);
-    box-shadow: 0 0 8px var(--neon-green);
+    color: var(--ctf-neon-green);
+    box-shadow: 0 0 8px var(--ctf-neon-green);
 }
-.main-nav .nav-link:active {
-    background-color: var(--neon-green);
-    color: var(--sidebar-bg);
+.main-nav .nav-link.active {
+    background-color: var(--ctf-neon-green);
+    color: var(--ctf-navbar-bg);
     font-weight: bold;
-    box-shadow: 0 0 10px var(--neon-green);
+    box-shadow: 0 0 10px var(--ctf-neon-green);
 }
 .main-nav .logout-link {
-    color: var(--neon-pink);
-    border-top: none; /* إزالة الخط الفاصل الذي كان في الـ Sidebar */
-    margin-top: 0;
+    color: var(--ctf-neon-pink); /* لون خاص للخروج */
 }
 .main-nav .logout-link:hover {
     background-color: rgba(255,0,204,0.1);
-    box-shadow: 0 0 8px var(--neon-pink);
-    color: var(--neon-pink);
+    box-shadow: 0 0 8px var(--ctf-neon-pink);
+    color: var(--ctf-neon-pink);
 }
 
-/* ========================================= */
-/* 4. أنماط بطاقات التحدي (Challenge Cards) */
-/* ========================================= */
-
-.dashboard-body .challenge-grid {
-    display: flex;
-    /* 💥 هذا يضمن ترتيب Network, Reverse, Privesc جنباً إلى جنب */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+/* Challenge Cards Grid */
+.challenge-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: 30px;
-    padding: 30px;
+    padding: 0; 
 }
-
 .challenge-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
-    max-width: 400px;
-    padding: 10px; 
-    margin: 0;
-    /*background-color: var(--sidebar-bg);*/
-    border: 2px solid #a9a9a9;
+    text-align: center;
+    background-color: var(--ctf-card-bg);
+    border: 2px solid var(--ctf-border-color);
     border-radius: 20px;
     text-decoration: none;
-    color: var(--text-light);
+    color: var(--ctf-primary-color);
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 15px rgba(196,196,196,0.5) , 0 0 12px #a9a9a9 , 0 0 12px #a9a9a9;
-    background-color: rgba(0 , 0, 0 , 0.7);
+    box-shadow: 0 0 15px rgba(196, 196, 196, 0.5), 0 0 12px var(--ctf-primary-color); 
     box-sizing: border-box;
-    z-index: 2;
     overflow: hidden;
 }
 .challenge-card:hover{
-    background-color: rgba(255,0,204,0.1);
-    box-shadow: 8 12 8px #a9a9a9;
-    
+    background-color: rgba(255,0,204,0.1); /* لون النيون الوردي الفاتح */
+    box-shadow: 0 0 15px var(--ctf-neon-pink); 
+    transform: translateY(-5px);
 }
-
-/* 🔴 تنسيق الصور داخل البطاقة لتصغيرها وحل التداخل */
 .challenge-card img {
-    width: 100%; /* املأ عرض البطاقة بالكامل */
-    height: 150px; /* تحديد ارتفاع ثابت مناسب */
-    display: block;
-    margin-bottom: 15px;
-    object-fit: cover; /* لضمان تغطية الصورة للمساحة دون ترك فراغات */
-}
-
-/* ... باقي التنسيقات (التوهج، الـ Status Tags) تبقى كما هي ... */
-
-
-/* Challenges CTF */
-
-/* --- CTF THEME VARIABLES --- */
-:root {
-    --ctf-primary-color: #ffffff;
-    --ctf-accent: #00ff00; /* Neon Green */
-    --ctf-bg-color: #050505;
-    --ctf-card-bg: rgba(20, 20, 20, 0.95);
-    --ctf-glow: 0 0 15px rgba(255, 255, 255, 0.3);
-    --ctf-input-bg: #111;
-}
-
-/* --- GLOBAL STYLES (Scoped to CTF Page) --- */
-body.ctf-page-body {
-    background-color: var(--ctf-bg-color);
-    background-image: url('assets/hacker-bg.jpg'); 
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    color: var(--ctf-primary-color);
-    font-family: 'Roboto Mono', monospace;
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-/* --- NAVIGATION BAR --- */
-.ctf-navbar {
-    background: rgba(0, 0, 0, 0.9);
-    padding: 15px 30px;
-    border-bottom: 1px solid #333;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-}
-
-.ctf-nav-link {
-    color: #aaa;
-    text-decoration: none;
-    margin-left: 20px;
-    transition: 0.3s;
-    cursor: pointer;
-}
-
-.ctf-nav-link:hover, .ctf-nav-link.active {
-    color: var(--ctf-primary-color);
-    text-shadow: 0 0 8px var(--ctf-primary-color);
-}
-
-/* --- GENERAL CONTAINERS & PANELS --- */
-.ctf-main-container {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 20px;
-    width: 90%; 
-}
-
-.ctf-glass-panel {
-    background: var(--ctf-card-bg);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: var(--ctf-glow);
-    backdrop-filter: blur(5px);
-    margin-bottom: 30px;
-}
-
-/* --- INPUTS & BUTTONS --- */
-.ctf-input-field {
     width: 100%;
-    padding: 12px;
-    margin: 5px 0;
-    background: var(--ctf-input-bg);
-    border: 1px solid #444;
-    border-radius: 8px;
+    height: 150px;
+    display: block;
+    margin-bottom: 10px;
+    object-fit: cover;
+    border-radius: 18px 18px 0 0;
+}
+.card-body h2 {
+    font-size: 1.4em;
+    margin: 10px 0;
+    padding: 0 15px;
+}
+.card-footer {
+    width: 100%;
+    padding: 10px 15px 15px 15px;
+    box-sizing: border-box;
+}
+.status-tag {
+    display: inline-block;
+    background-color: var(--ctf-input-bg);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    border: 1px solid var(--ctf-border-color);
     color: var(--ctf-primary-color);
-    font-family: inherit;
-    outline: none;
-    box-sizing: border-box; 
-    transition: 0.3s;
 }
 
-.ctf-input-field:focus {
-    border-color: var(--ctf-primary-color);
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+/* CHALLENGE DETAILS (For Challenges Page) */
+.challenge-details {
+    padding: 15px;
+    border-top: 1px dashed var(--ctf-border-color);
+    width: 100%;
+    box-sizing: border-box;
 }
-
-.ctf-btn-action {
+.challenge-details input {
+    /* نفس تنسيق حقول الدخول */
     width: 100%;
     padding: 10px;
-    background: var(--ctf-accent);
-    color: black;
+    border: 1px solid var(--ctf-border-color);
+    border-radius: 13px;
+    background-color: var(--ctf-input-bg);
+    color: var(--ctf-primary-color);
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+.submit-flag-btn {
+    /* نفس تنسيق زر الدخول */
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--ctf-border-color);
+    border-radius: 7px;
+    background-color: var(--ctf-primary-color);
+    color: #000;
     font-weight: bold;
-    border: none;
-    border-radius: 8px;
     cursor: pointer;
-    transition: 0.3s;
-    margin-top: 10px;
+    margin-top: 5px;
+    box-shadow: 0 0 5px var(--ctf-primary-color);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+.submit-flag-btn:hover {
+    background-color: #c0c0c0;
+    box-shadow: 0 0 10px var(--ctf-primary-color), 0 0 20px var(--ctf-primary-color);
 }
 
-.ctf-btn-action:hover {
-    box-shadow: 0 0 15px var(--ctf-accent);
-    transform: scale(1.01);
+
+/* SCOREBOARD STYLES */
+.scoreboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: var(--ctf-card-bg);
+    border: 2px solid var(--ctf-border-color);
+    border-radius: 15px;
+    overflow: hidden; 
+    box-shadow: var(--ctf-accent-glow);
+}
+.scoreboard-table th, .scoreboard-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(169, 169, 169, 0.2);
+}
+.scoreboard-table th {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: var(--ctf-neon-green); /* لون النيون الأخضر للعناوين */
+    text-shadow: 0 0 5px rgba(0, 255, 102, 0.5);
+    font-weight: bold;
+}
+.scoreboard-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+.rank-highlight {
+    color: var(--ctf-neon-pink); /* لون النيون الوردي للمراكز الأولى */
+    font-weight: bold;
 }
 
-/* --- LOGIN WRAPPER (Centered Card) --- */
-#ctf-login-wrapper {
-    max-width: 400px;
-    margin: 100px auto;
-    text-align: center;
-}
-
-/* --- CHALLENGES GRID --- */
-.ctf-challenges-grid {
+/* --- ACCOUNT SETTINGS STYLES --- */
+.account-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+    /* يتم تقسيم الصفحة إلى عمودين متساويين لبطاقة الحالة ونماذج التعديل */
+    grid-template-columns: 1fr 1fr; 
+    gap: 30px;
+    margin-top: 30px;
+}
+@media (max-width: 900px) {
+    .account-grid {
+        grid-template-columns: 1fr; /* عمود واحد على الأجهزة الأصغر */
+    }
+    .profile-card {
+        grid-column: 1 / span 1 !important; /* إلغاء خاصية span 2 على الشاشات الصغيرة */
+    }
 }
 
-.ctf-challenge-card {
-    border: 1px solid #333;
-    padding: 20px;
-    border-radius: 10px;
-    background: #0a0a0a;
-    transition: 0.3s;
+/* Profile Card Style (بطاقة الحالة) */
+.profile-card {
+    background-color: var(--ctf-card-bg);
+    border: 2px solid var(--ctf-border-color);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 12px var(--ctf-primary-color);
+    grid-column: 1 / span 2; /* تأخذ مساحة عمودين على الشاشات الكبيرة */
+}
+.profile-card h2 {
+    color: var(--ctf-neon-green);
+    text-shadow: 0 0 5px rgba(0, 255, 102, 0.5);
+    margin-top: 0;
+    border-bottom: 1px dashed var(--ctf-border-color);
+    padding-bottom: 10px;
+}
+.profile-info p {
+    font-size: 1.1em;
+    line-height: 1.8;
 }
 
-.ctf-challenge-card:hover {
-    border-color: var(--ctf-accent);
-    box-shadow: 0 0 10px var(--ctf-accent);
+.stat-highlight {
+    color: var(--ctf-neon-green);
+    font-weight: bold;
+}
+.rank-highlight {
+    color: var(--ctf-neon-pink);
+    font-weight: bold;
+    font-size: 1.2em;
 }
 
-/* --- FLAG INPUTS INSIDE CHALLENGE CARD --- */
-.ctf-flag-inputs {
-    margin-top: 15px;
-    border-top: 1px dashed #333;
-    padding-top: 10px;
-}
-.ctf-challenge-card .ctf-btn-action {
-    margin-top: 10px;
+/* Wrapper and Form Adjustments */
+.settings-form-wrapper {
+    /* كل نموذج تعديل (Alias أو Password) هو عنصر في الـ grid */
+    padding: 0; 
 }
 
-/* --- SCOREBOARD STYLES (Full Width) --- */
-.ctf-table { 
-    width: 100%; 
-    border-collapse: collapse; 
-    margin-top: 15px; 
+/* يتم إعادة استخدام ستايل .login-form وتعديله ليتناسب مع نموذج الإعدادات */
+.settings-form-wrapper .login-form {
+    width: 100%;
+    padding: 30px; 
+    gap: 15px; 
+    margin: 0; 
+    max-width: none; /* يسمح له بالتمدد داخل عمود الـ grid */
+    border-radius: 15px; /* تصغير الزوايا قليلاً */
+    align-items: flex-start; 
 }
-.ctf-table th, .ctf-table td { 
-    padding: 12px; 
-    text-align: left; 
-    border-bottom: 1px solid #333; 
+.settings-form-wrapper .login-form h2 {
+    color: var(--ctf-primary-color);
+    text-shadow: none; 
+    margin-bottom: 20px;
 }
-.ctf-table th { 
-    color: var(--ctf-accent); 
+.settings-form-wrapper .input-group {
+    padding: 0; 
 }
+/* تنسيق الأزرار وحقول الإدخال تبقى كما هي من التنسيق الموحد */

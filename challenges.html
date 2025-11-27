@@ -3,20 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CTF - Targets</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body class="dashboard-body">
-    
-    <header>
-
-    </header>
-    <main class="container">
-        <h1 class="category-title">Loading Challenges...</h1>
-        <div id='challenges-list' class="grid-view">
+    <nav class="top-navbar">
+        <ul class="main-nav">
+            <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+            <li><a href="challenges.html" class="nav-link active">Challenges</a></li>
+            <li><a href="scoreboard.html" class="nav-link">Scoreboard</a></li>
+            <li><a href="account_settings.html" class="nav-link">Account</a></li>
+            <li><a href="index.html" class="nav-link logout-link">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="main-container">
+        <div class="header">
+            <h1>All Available Targets</h1>
+        </div>
+        <div id='challenges-list' class="challenge-grid">
+            
+            <div class="challenge-card" style="align-items: stretch;">
+                <div class="card-body">
+                    <h2 style="text-align: left;">Exploitation (100 Pts)</h2>
+                    <p style="text-align: left; color: #ccc;">Get Access in Victim Machine</p>
+                </div>
+                <div class="challenge-details">
+                    <input type="text" placeholder="Enter Flag Here: CTF{...}" class="flag-input">
+                    <button class="submit-flag-btn">Submit Flag</button>
+                    <p id="challenge-msg-1" style="color: var(--ctf-neon-pink); font-size: 0.9em; margin-top: 10px; text-align: center;">Status: UNLOCKED</p>
+                </div>
+            </div>
+            
+            <div class="challenge-card" style="align-items: stretch;">
+                <div class="card-body">
+                    <h2 style="text-align: left;">Privilege Escalation (50 Pts)</h2>
+                    <p style="text-align: left; color: #ccc;">Get Root Access in victim</p>
+                </div>
+                <div class="challenge-details">
+                    <input type="text" placeholder="Flag: CTF{password_found}" class="flag-input" readonly> 
+                    <button class="submit-flag-btn" style="background-color: var(--ctf-neon-green); color: black;">Submit Flag</button>
+                    <p id="challenge-msg-2" style="color: var(--ctf-neon-green); font-size: 0.9em; margin-top: 10px; text-align: center;">Status: UNSOLVED </p>
+                </div>
+            </div>
 
         </div>
-    </main>
-    <script src="challenges.js"></script>
-</body>
+    </div>
+    </body>
 </html>
