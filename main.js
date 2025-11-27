@@ -13,11 +13,11 @@ import {
     getDoc,
     updateDoc, 
     arrayUnion
-} from "https://www.gstatic.com/firebase/910.6.0/firebase-firestore.js"; // ** التعديل هنا: إكمال رابط Firestore SDK **
+} from "https://www.gstatic.com/firebase/10.10.0/firebase-firestore.js"; // ** التعديل هنا: إكمال رابط Firestore SDK **
 
 import { 
     onAuthStateChanged 
-} from "https://www.gstatic.com/firebase/10.6.0/firebase-auth.js"; // ** التعديل هنا: إكمال رابط Auth SDK **
+} from "https://www.gstatic.com/firebase/10.10.0/firebase-auth.js"; // ** التعديل هنا: إكمال رابط Auth SDK **
 
 
 // 3. تعريف عناصر الواجهة

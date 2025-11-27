@@ -12,13 +12,13 @@ import {
     signInWithEmailAndPassword, 
     createUserWithEmailAndPassword, 
     signOut 
-} from "https://www.gstatic.com/firebase/10.6.0/firebase-auth.js"; 
+} from "https://www.gstatic.com/firebase/10.10.0/firebase-auth.js"; 
 
 // 3. IMPORT REQUIRED FIRESTORE FUNCTIONS
 import { 
     doc, 
     setDoc 
-} from "https://www.gstatic.com/firebase/10.6.0/firebase-firestore.js"; 
+} from "https://www.gstatic.com/firebase/10.10.0/firebase-firestore.js"; 
 
 // ... الآن، سيتمكن المتصفح من التعرف على الدوال داخل الدالة التالية ...
 
