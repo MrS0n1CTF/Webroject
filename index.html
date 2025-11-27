@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Access Granted</title>
+</head>
+<body class="login-body">
+    <script src="auth.js"></script>
+    <div id="login-page" class="login-page">
+        <form class="login-form" action="dashboard.html">
+            <h1>Login Page</h1>
+            <div class="input-group">
+                <label for="username">Username</label> <br>
+                <input type="text"     name="Username" id="username">
+
+            </div>
+            <dev class="input-group">
+                <label for="password">Password</label> <br>
+                <input type="password" name="Password" id="password" required>
+            </dev>
+            <br>
+            <button type="submit" class="login-button">Login</a></button>
+            <p class="forgot-password">
+                <a href="#">Do you forgot password !</a>
+            </p>
+            <p class="signup">
+                <a href="#" id="show-signup">Signup</a>
+            </p>
+        </form>
+    </div>
+    <div id="signup-page" class="signup-page">
+        <!--<form class="login-form" action="register_process.php" method="POST">-->
+        <form class="login-form" action="dashboard.html">  
+            <h1>Signup Page</h1>
+            
+            <div class="input-group">
+                <label for="username">Username</label> <br>
+                <input type="text" name="Username" id="username" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label> <br>
+                <input type="email" name="Email" id="email" required> 
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label> <br>
+                <input type="password" name="Password" id="password" required>
+            </div>
+            <div class="input-group">
+                <label for="confirm_password">Confirm Password</label> <br>
+                <input type="password" name="ConfirmPassword" id="confirm_password" required>
+            </div>
+            <br>
+            <button type="submit" class="login-button">Signup</button>
+            <p class="signup">
+                <a href="#" id="show-login">Already have an account? Login</a>
+            </p>
+        </form>
+    </div>
+   
+</body>
+</html>
