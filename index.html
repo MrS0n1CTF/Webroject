@@ -8,13 +8,12 @@
 </head>
 <body class="login-body">
     <script src="auth.js"></script>
-    <p id="auth-message" style="color: #ff00ff; text-align: center; margin-top: 15px; font-weight: bold;"></p>
     <div id="login-page" class="login-page">
-        <form class="login-form" action="dashboard.html">
+        <form class="login-form">
             <h1>Login Page</h1>
             <div class="input-group">
-                <label for="username">Username</label> <br>
-                <input type="text" name="Username" id="username">
+                <label for="email">Email</label> <br>
+                <input type="email" name="Email" id="email" required>
 
             </div>
             <div class="input-group"> 
@@ -26,6 +25,7 @@
             <p class="forgot-password">
                 <a href="#">Do you forgot password !</a>
             </p>
+            <p id="auth-message" style="color: #ff00ff; text-align: center; margin-top: 15px; font-weight: bold;"></p>
             <p class="signup">
                 <a href="#" id="show-signup">Signup</a>
             </p>
@@ -53,6 +53,7 @@
             </div>
             <br>
             <button type="submit" class="login-button">Signup</button>
+            <p id="auth-message" style="color: #ff00ff; text-align: center; margin-top: 15px; font-weight: bold;"></p>
             <p class="signup">
                 <a href="#" id="show-login">Already have an account? Login</a>
             </p>
