@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const showLoginLink = document.getElementById('show-login');
     const loginForm = document.querySelector('#login-page form'); 
     const signupForm = document.querySelector('#signup-page form'); 
-    const authMessageElement = document.getElementById('auth-message');
-
+    const loginMessageElement = document.getElementById('login-message');
+    const signupMessageElement = document.getElementById('signup-message');
     // ** 1. وظيفة موحدة للتحويل بين الواجهات **
     // (تم جعلها دالة عامة (Window.toggleMode) لكي يمكن لـ main.js استخدامها)
     window.toggleMode = function(isLogin) {
@@ -97,8 +97,8 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // جلب القيم
             const username = e.target.querySelector('#username').value.trim();
-            const email = e.target.querySelector('#email').value.trim();
-            const password = e.target.querySelector('#password').value.trim();
+            const email = e.target.querySelector('#signup-email').value.trim();
+            const password = e.target.querySelector('#signup-password').value.trim();
             const confirmPassword = e.target.querySelector('#confirm_password').value.trim();
 
             if (password !== confirmPassword) {
@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
             } catch (error) {
                 const errorMessage = error.message.replace('Firebase: Error (auth/', '').replace(').', '').replace(/-/g, ' ');
-                if (authMessageElement) authMessageElement.textContent = `Error in Login${errorMessage}`;
+                if (authMessageElement) authMessageElement.textContent = `Error in signup${errorMessage}`;
                 console.error("Signup Error:", error);
             }
         });
